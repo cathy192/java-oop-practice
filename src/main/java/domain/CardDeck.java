@@ -1,6 +1,5 @@
 package domain;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class CardDeck {
@@ -34,7 +33,7 @@ public void addCards(Card card){
                type=types[i];
                 card=new Card(value,type);
                 cards.add(card);
-                System.out.println(card.getShape()+card.getValue());
+               // System.out.println(card.getShape()+card.getValue());
             }
         }
         return cards;
@@ -55,34 +54,28 @@ public void addCards(Card card){
         return value;
     }
     //카드 하나를 뽑아주는 메서드
-    Card pickCard(){
-        Card randomCard = null;
-        CardType shape=RandomShape();
-        String value=RandomValue();
-        randomCard.setValue(value);
-        randomCard.setShape(shape);
+    public static Card pickCard(ArrayList<Card> cardList){
+        int index= cardList.size();
+        int valueIndex=(int)(Math.random()*index+1);
 
-        return randomCard;
-    }
-    //랜덤으로 뽑아질 카드의 모양을 지정해주는 메서드
-    CardType RandomShape(){
-        CardType shape = null;
-        int shapeIndex=(int)(Math.random()*3);
-        if(shapeIndex==0) shape=CardType.HEART;
-        else if(shapeIndex==1) shape=CardType.SPADE;
-        else if(shapeIndex==2) shape=CardType.DIAMOND;
-        else if(shapeIndex==3) shape=CardType.CLOVER;
-
-        return shape;
-    }
-    //랜덤으로 뽑아질 카드의 값을 지정해주는 메서드
-    String RandomValue(){
-        String value;
-        int valueIndex=(int)(Math.random()*13+1);
-        value=makeValue(valueIndex);
-        return value;
+        return cardList.get(valueIndex);
     }
 
+
+    //뽑은 카드 제거해주는 메서드
+    public static ArrayList<Card> removeCard(ArrayList<Card> cards,Card pick){
+
+       // Card pick = pickCard(cards);
+        System.out.println(pick.getValue()+ pick.getShape());
+        for(int i=0;i< cards.size();i++){
+            if(pick.getShape()== cards.get(i).getShape() && pick.getValue()== cards.get(i).getValue())
+                cards.remove(i);
+            else continue;
+        }
+        System.out.println(cards.contains(pick));
+        return cards;
+
+    }
 
 
 }
