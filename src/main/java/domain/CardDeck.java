@@ -18,7 +18,7 @@ public class CardDeck {
         CardDeck.cards = cards;
     }
 
-    private static final CardType[] types{
+    private static final CardType[] types={
             CardType.HEART,CardType.SPADE,CardType.CLOVER,CardType.DIAMOND
     };
 public void addCards(Card card){

@@ -38,7 +38,6 @@ public class CardDeckTest {
     public  void pickTest(){
 
         CardDeck deck = new CardDeck();
-        deck.setCards(initializeCards(deck.getCards())); //카트덱 생성
         Card card =pickCard(deck.getCards()); //랜덤으로 카드 뽑음
         assertSame(deck.getCards().contains(card), true);//카드덱에 있는지 확이
     }
@@ -47,7 +46,6 @@ public class CardDeckTest {
     @DisplayName("뽑은 카드 제거 테스트")
     public void removedTest(){
         CardDeck deck = new CardDeck();
-        deck.setCards(initializeCards(deck.getCards())); //카드덱 생성
         ArrayList<Card> cardList= new ArrayList<>(); //카드 뽑은 뒤 카드덱
         Card pick = pickCard(deck.getCards()); //뽑은 카드
         assertSame(true, deck.getCards().contains(pick) );
