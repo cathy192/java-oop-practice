@@ -28,7 +28,6 @@ public class CardDeckTest {
                 cardDeck.addCards(card); //카드 덱에 생성한 카드 추가
                 check = cardDeck.getCards().contains(card); //제대로 값이 들어가져있는지 테스트
                 assertSame(check, true);
-
             }
         }
     }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class CardDeck {
 
     public CardDeck() {
-        initializeCards(cards);
+        MakeDeck(types);
     }
 
     static ArrayList<Card> cards= new ArrayList<>();
@@ -17,26 +17,32 @@ public class CardDeck {
     public  void setCards(ArrayList<Card> cards) {
         CardDeck.cards = cards;
     }
+
+    private static final CardType[] types{
+            CardType.HEART,CardType.SPADE,CardType.CLOVER,CardType.DIAMOND
+    };
 public void addCards(Card card){
         this.cards.add(card);
 }
     static Card card;
 
     //모든 카드들에 값과 모양을 넣어주는 메서드
-    public static ArrayList<Card> initializeCards(ArrayList<Card> cards){
-        CardType[] types = CardType.values();
+    public static void initializeCards(CardType type){
+       // CardType[] types = CardType.values();
         String value;
-        for(int i=0;i<types.length;i++){
             for(int j=0;j<14;j++){
-                CardType type=null;
                value= makeValue(j);
-               type=types[i];
                 card=new Card(value,type);
                 cards.add(card);
                // System.out.println(card.getShape()+card.getValue());
             }
         }
-        return cards;
+
+    public void MakeDeck(CardType types[] ){
+        for(int i=0;i< types.length;i++){
+            initializeCards(types[i]);
+        }
+
     }
     //숫자에 따라 카드의 값을 결정해주는 메서드
     static String makeValue(Integer j){
