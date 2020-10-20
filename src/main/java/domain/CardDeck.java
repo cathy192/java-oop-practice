@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class CardDeck {
 
     public CardDeck() {
-        MakeDeck(types);
+        makeDeck(types);
     }
 
     static ArrayList<Card> cards= new ArrayList<>();
@@ -38,7 +38,7 @@ public void addCards(Card card){
             }
         }
 
-    public void MakeDeck(CardType types[] ){
+    public void makeDeck(CardType types[] ){
         for(int i=0;i< types.length;i++){
             initializeCards(types[i]);
         }
