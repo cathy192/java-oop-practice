@@ -27,7 +27,10 @@ public class Dealer implements Player {
     }
     //딜러의 카드리스트에 새로운 카드를 더하는 메서드
     void addCard(Card card){
-        dealerCard.add(card);
+        if(dealerCard.size()>3){
+            System.out.println("더이상 추가할 수 없습니다");
+        }
+        else dealerCard.add(card);
     }
 
 
