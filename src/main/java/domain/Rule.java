@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Rule {
 
@@ -24,20 +25,27 @@ public class Rule {
         return num;
     }
     //카드값의 합을 나타내는 함수
-    private int sumOfCard(ArrayList<Card> cardList){
+    private int sumOfCard(List<Card> cardList){
         int sum=0;
         for(int i=0;i<cardList.size();i++){
             sum+=makeNum(cardList.get(i));
         }
         return sum;
     }
-    private String overSum(int sum){
+    private int overSum(int sum){
         if(sum>21){
-            return "OVER21";
+            return -1;
         }
-        else return "NotOver";
+        else return sum;
     }
-    
+    public void Winner(Dealer dealer, Gamer gamer){
+        int dealerSum, gamerSum;
+        dealerSum=sumOfCard(dealer.dealerCard);
+        gamerSum=sumOfCard(gamer.gamerCard);
+        if(dealerSum>gamerSum)
+            System.out.println("Winner is dealer");
+        else System.out.println("Winner is Gamer");
 
+    }
 
 }
