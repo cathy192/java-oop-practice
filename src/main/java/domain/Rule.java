@@ -32,19 +32,25 @@ public class Rule {
         }
         return sum;
     }
+    //21을 넘으면 -1로
     private int overSum(int sum){
         if(sum>21){
             return -1;
         }
         else return sum;
     }
+    //승자를 알려주는 메서드
     public void Winner(Dealer dealer, Gamer gamer){
         int dealerSum, gamerSum;
         dealerSum=sumOfCard(dealer.dealerCard);
         gamerSum=sumOfCard(gamer.gamerCard);
         if(dealerSum>gamerSum)
             System.out.println("Winner is dealer");
-        else System.out.println("Winner is Gamer");
+        else if(dealerSum<gamerSum)
+            System.out.println("Winner is Gamer");
+
+        else if(dealerSum==gamerSum)
+            System.out.println("Draw");
 
     }
 
