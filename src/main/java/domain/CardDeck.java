@@ -1,22 +1,23 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CardDeck {
-
+    private static final int A_NUMBER=1;
+    private static final int J_NUMBER=11;
+    private static final int Q_NUMBER=12;
+    private static final int K_NUMBER=13;
     public CardDeck() {
         makeDeck(types);
     }
 
-    static ArrayList<Card> cards= new ArrayList<>();
+    static List<Card> cards= new ArrayList<>();
 
-    public  ArrayList<Card> getCards() {
+    public  List<Card> getCards() {
         return cards;
     }
 
-    public  void setCards(ArrayList<Card> cards) {
-        CardDeck.cards = cards;
-    }
 
     private static final CardType[] types={
             CardType.HEART,CardType.SPADE,CardType.CLOVER,CardType.DIAMOND
@@ -47,13 +48,13 @@ public void addCards(Card card){
     //숫자에 따라 카드의 값을 결정해주는 메서드
     static String makeValue(Integer j){
         String value;
-        if(j==0)
+        if(j==A_NUMBER)
             value="A";
-        else if(j==11)
+        else if(j==J_NUMBER)
             value="J";
-        else if(j==12)
+        else if(j==Q_NUMBER)
             value="Q";
-        else if(j==13)
+        else if(j==K_NUMBER)
             value="K";
         else value=Integer.toString(j);
 
@@ -69,7 +70,7 @@ public void addCards(Card card){
 
 
     //뽑은 카드 제거해주는 메서드
-    public static ArrayList<Card> removeCard(ArrayList<Card> cards,Card pick){
+    public static List<Card> removeCard(ArrayList<Card> cards,Card pick){
 
        // Card pick = pickCard(cards);
         System.out.println(pick.getValue()+ pick.getShape());
