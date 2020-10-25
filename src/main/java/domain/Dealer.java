@@ -1,9 +1,9 @@
 package domain;
 
+import domain.myEception.NoCardException;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import static domain.CardDeck.pickCard;
 
 
 public class Dealer implements Player {
@@ -17,16 +17,17 @@ public class Dealer implements Player {
 
 
     //카드를 뽑을지 아닐지 결정하는 메서드
-    List<Card>  PickOrNot(int sum,ArrayList<Card> cardList){
-        Card newCard;
-        if(sum <=16){
-            newCard=pickCard(cardList);
-            addCard(newCard);
+    List<Card>  PickOrNot(Card card){
+
+        if(Rule.sumOfCard(dealerCard) <=16){
+            addCard(card);
         }
+        else System.out.println("카드합이 17이상입니다.");
+
         return dealerCard;
     }
     //딜러의 카드리스트에 새로운 카드를 더하는 메서드
-    void addCard(Card card){
+    public void addCard(Card card){
         if(dealerCard.size()>3){
             System.out.println("더이상 추가할 수 없습니다");
         }
@@ -36,7 +37,8 @@ public class Dealer implements Player {
 
     @Override
     public List<Card> openCard() {
-
+        if(dealerCard.isEmpty())
+            throw new NoCardException("보여줄 카드가 없습니다");
         return this.dealerCard;
     }
 

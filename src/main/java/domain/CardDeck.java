@@ -61,7 +61,7 @@ public void addCards(Card card){
         return value;
     }
     //카드 하나를 뽑아주는 메서드
-    public static Card pickCard(ArrayList<Card> cardList){
+    public static Card pickCard(List<Card> cardList){
         int index= cardList.size();
         int valueIndex=(int)(Math.random()*index+1);
 
@@ -70,7 +70,7 @@ public void addCards(Card card){
 
 
     //뽑은 카드 제거해주는 메서드
-    public static List<Card> removeCard(ArrayList<Card> cards,Card pick){
+    public static List<Card> removeCard(List<Card> cards, Card pick){
 
        // Card pick = pickCard(cards);
         System.out.println(pick.getValue()+ pick.getShape());

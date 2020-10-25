@@ -9,6 +9,7 @@ public class Rule {
     private static final int J_NUMBER=11;
     private static final int Q_NUMBER=12;
     private static final int K_NUMBER=13;
+
     //카드의 합을 위해 숫자로 변환하는 메서드
     static private int makeNum(Card card){
         String value=card.getValue();
@@ -25,7 +26,7 @@ public class Rule {
         return num;
     }
     //카드값의 합을 나타내는 함수
-    private int sumOfCard(List<Card> cardList){
+    public static int sumOfCard(List<Card> cardList){
         int sum=0;
         for(int i=0;i<cardList.size();i++){
             sum+=makeNum(cardList.get(i));
@@ -40,10 +41,10 @@ public class Rule {
         else return sum;
     }
     //승자를 알려주는 메서드
-    public void Winner(Dealer dealer, Gamer gamer){
+    public void winner(Dealer dealer, Gamer gamer){
         int dealerSum, gamerSum;
-        dealerSum=sumOfCard(dealer.dealerCard);
-        gamerSum=sumOfCard(gamer.gamerCard);
+        dealerSum=sumOfCard(dealer.openCard());
+        gamerSum=sumOfCard(gamer.openCard());
         if(dealerSum>gamerSum)
             System.out.println("Winner is dealer");
         else if(dealerSum<gamerSum)
