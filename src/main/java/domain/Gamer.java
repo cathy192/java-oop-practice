@@ -1,5 +1,7 @@
 package domain;
 
+import domain.myEception.NoCardException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +19,9 @@ public class Gamer implements Player{
 
     @Override
     public List<Card> openCard() {
-        return gamerCard;
+
+        if(gamerCard.isEmpty())
+            throw new NoCardException("보여줄 카드가 없습니다");
+        return this.gamerCard;
     }
 }

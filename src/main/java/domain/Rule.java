@@ -31,28 +31,31 @@ public class Rule {
         for(int i=0;i<cardList.size();i++){
             sum+=makeNum(cardList.get(i));
         }
-        return sum;
+        System.out.println("sum:"+sum);
+        return overSum(sum);
     }
     //21을 넘으면 -1로
-    private int overSum(int sum){
+    private static int overSum(int sum){
         if(sum>21){
             return -1;
         }
         else return sum;
     }
     //승자를 알려주는 메서드
-    public void winner(Dealer dealer, Gamer gamer){
+    public String whoIsWinner(Dealer dealer, Gamer gamer){
         int dealerSum, gamerSum;
         dealerSum=sumOfCard(dealer.openCard());
         gamerSum=sumOfCard(gamer.openCard());
+        String winner;
         if(dealerSum>gamerSum)
-            System.out.println("Winner is dealer");
+            winner="Winner is dealer";
         else if(dealerSum<gamerSum)
-            System.out.println("Winner is Gamer");
+            winner="Winner is Gamer";
 
-        else if(dealerSum==gamerSum)
-            System.out.println("Draw");
-
+        else
+            winner="Draw";
+        System.out.println(winner);
+        return winner;
     }
 
 }

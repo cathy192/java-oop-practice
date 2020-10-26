@@ -20,30 +20,36 @@ public class Dealer implements Player {
 
 
     //카드를 뽑을지 아닐지 결정하는 메서드
-    List<Card>  PickOrNot(Card card){
+    void  PickOrNot(Card card){
 
         if(Rule.sumOfCard(dealerCard) <=16){
             addCard(card);
         }
         else throw new OverSumExecption("카드합이 17이상입니다.");
 
-
-        return dealerCard;
     }
-    //딜러의 카드리스트에 새로운 카드를 더하는 메서드
-    public void addCard(Card card){
-        if(dealerCard.size()>3){
-            throw new CardLimitExeption("더이상 추가할 수 없습니다");
+
+
+    @Override
+    public void addCard(Card card) {
+        if(!sizeCheck()){
+            dealerCard.add(card);
         }
-        else dealerCard.add(card);
     }
-
 
     @Override
     public List<Card> openCard() {
         if(dealerCard.isEmpty())
             throw new NoCardException("보여줄 카드가 없습니다");
         return this.dealerCard;
+    }
+    //딜러의 카드리스트에 새로운 카드를 더하는 메서드
+    public boolean sizeCheck(){
+        System.out.println(dealerCard.size());
+        if(dealerCard.size()>=3){
+            throw new CardLimitExeption("더이상 추가할 수 없습니다");
+        }
+        else return false;
     }
 
 }

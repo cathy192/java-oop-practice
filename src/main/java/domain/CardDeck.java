@@ -31,7 +31,7 @@ public void addCards(Card card){
     public static void initializeCards(CardType type){
        // CardType[] types = CardType.values();
         String value;
-            for(int j=0;j<14;j++){
+            for(int j=1;j<14;j++){
                value= makeValue(j);
                 card=new Card(value,type);
                 cards.add(card);
@@ -61,16 +61,16 @@ public void addCards(Card card){
         return value;
     }
     //카드 하나를 뽑아주는 메서드
-    public static Card pickCard(List<Card> cardList){
-        int index= cardList.size();
+    public static Card pickCard(){
+        int index= cards.size()-1;
         int valueIndex=(int)(Math.random()*index+1);
-
-        return cardList.get(valueIndex);
+        removeCard(cards.get(valueIndex));
+        return cards.get(valueIndex);
     }
 
 
     //뽑은 카드 제거해주는 메서드
-    public static List<Card> removeCard(List<Card> cards, Card pick){
+    public static void removeCard(Card pick){
 
        // Card pick = pickCard(cards);
         System.out.println(pick.getValue()+ pick.getShape());
@@ -80,7 +80,7 @@ public void addCards(Card card){
             else continue;
         }
         System.out.println(cards.contains(pick));
-        return cards;
+
 
     }
 

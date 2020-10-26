@@ -40,7 +40,7 @@ public class CardDeckTest {
     public  void pickTest(){
 
         CardDeck deck = new CardDeck();
-        Card card =pickCard(deck.getCards()); //랜덤으로 카드 뽑음
+        Card card =deck.pickCard(); //랜덤으로 카드 뽑음
         assertEquals(deck.getCards().contains(card), true);//카드덱에 있는지 확이
     }
 
@@ -49,9 +49,9 @@ public class CardDeckTest {
     public void removedTest(){
         CardDeck deck = new CardDeck();
         List<Card> cardList= new ArrayList<>(); //카드 뽑은 뒤 카드덱
-        Card pick = pickCard(deck.getCards()); //뽑은 카드
+        Card pick = deck.pickCard(); //뽑은 카드
         assertEquals(true, deck.getCards().contains(pick) );
-        cardList=removeCard(deck.getCards(),pick);//카드 뽑은뒤 카드덱
+        removeCard(pick);//카드 뽑은뒤 카드덱
         assertEquals(false, cardList.contains(pick));
     }
 
