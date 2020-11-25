@@ -14,13 +14,14 @@ public class Gamer implements Player{
 
     @Override
     public void addCard(Card card) {
-        gamerCard.addCard(card);
+
+        gamerCard.toList().add(card);
     }
 
     @Override
     public Cards openCard() {
 
-        if(gamerCard.isEmpty())
+        if(gamerCard.toList().isEmpty())
             throw new NoCardException("보여줄 카드가 없습니다");
         return this.gamerCard;
     }
