@@ -8,13 +8,15 @@ public class CardDeck {
     private static final int J_NUMBER=11;
     private static final int Q_NUMBER=12;
     private static final int K_NUMBER=13;
-    public CardDeck() {
+    private static Cards cards;
+    public CardDeck( Cards cards) {
+        this.cards=cards;
         makeDeck(types);
     }
 
-    static List<Card> cards= new ArrayList<>();
+    //static List<Card> cards= new ArrayList<>();
 
-    public  List<Card> getCards() {
+    public  Cards getCards() {
         return cards;
     }
 
@@ -22,9 +24,8 @@ public class CardDeck {
     private static final CardType[] types={
             CardType.HEART,CardType.SPADE,CardType.CLOVER,CardType.DIAMOND
     };
-public void addCards(Card card){
-        this.cards.add(card);
-}
+
+
     static Card card;
 
     //모든 카드들에 값과 모양을 넣어주는 메서드
@@ -34,7 +35,7 @@ public void addCards(Card card){
             for(int j=1;j<14;j++){
                value= makeValue(j);
                 card=new Card(value,type);
-                cards.add(card);
+                cards.addCard(card);
                // System.out.println(card.getShape()+card.getValue());
             }
         }
@@ -62,10 +63,10 @@ public void addCards(Card card){
     }
     //카드 하나를 뽑아주는 메서드
     public static Card pickCard(){
-        int index= cards.size()-1;
+        int index= cards.cardSize()-1;
         int valueIndex=(int)(Math.random()*index+1);
-        removeCard(cards.get(valueIndex));
-        return cards.get(valueIndex);
+        removeCard(cards.cardGet(valueIndex));
+        return cards.cardGet(valueIndex);
     }
 
 
@@ -74,12 +75,12 @@ public void addCards(Card card){
 
        // Card pick = pickCard(cards);
         System.out.println(pick.getValue()+ pick.getShape());
-        for(int i=0;i< cards.size();i++){
-            if(pick.getShape()== cards.get(i).getShape() && pick.getValue()== cards.get(i).getValue())
-                cards.remove(i);
+        for(int i=0;i< cards.cardSize();i++){
+            if(pick.getShape()== cards.cardGet(i).getShape() && pick.getValue()== cards.cardGet(i).getValue())
+                cards.removeCard(i);
             else continue;
         }
-        System.out.println(cards.contains(pick));
+        //System.out.println(cards.contains(pick));
 
 
     }

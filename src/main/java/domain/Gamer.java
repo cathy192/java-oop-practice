@@ -6,19 +6,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Gamer implements Player{
-    List<Card> gamerCard =new ArrayList<>();//플레이어의 카드 리스트
+    Cards gamerCard;//플레이어의 카드 리스트
 
-    public Gamer(List<Card> playerCard) {
+    public Gamer(Cards playerCard) {
         this.gamerCard = playerCard;
     }
 
     @Override
     public void addCard(Card card) {
-        gamerCard.add(card);
+        gamerCard.addCard(card);
     }
 
     @Override
-    public List<Card> openCard() {
+    public Cards openCard() {
 
         if(gamerCard.isEmpty())
             throw new NoCardException("보여줄 카드가 없습니다");
