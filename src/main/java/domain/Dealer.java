@@ -10,7 +10,6 @@ public class Dealer implements Player {
 
 
     public Dealer(Cards dealerCard) {
-
         this.dealerCard = dealerCard;
     }
 

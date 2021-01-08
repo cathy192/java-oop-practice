@@ -28,16 +28,16 @@ public class Rule {
         return num;
     }
     //카드값의 합을 나타내는 함수
-    public static int sumOfCard(Cards cardList){
+    public  int sumOfCard(Cards cardList){
         int sum=0;
-        for(int i=0;i<cardList.cardSize();i++){
-            sum+=makeNum(cardList.cardGet(i));
+        for(int i=0;i<cardList.toList().size();i++){
+            sum+=makeNum(cardList.toList().get(i));
         }
         System.out.println("sum:"+sum);
         return overSum(sum);
     }
     //21을 넘으면 -1로
-    private static int overSum(int sum){
+    public int overSum(int sum){
         if(sum>21){
             return -1;
         }

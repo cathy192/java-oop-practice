@@ -1,49 +1,40 @@
 package domain;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-import static domain.CardNumber.*;
 
+public class CardMaker {
+   /* public static CardType[] types={
+            CardType.HEART,CardType.SPADE,CardType.CLOVER,CardType.DIAMOND
+    };
 
-public class Cards  {
+    Cards cards;
 
-    private List<Card> cards=new ArrayList<>();
-
-    public Cards( List<Card> cards){
+    public CardMaker(Cards cards) {
         this.cards = cards;
-
+        makeDeck(types);
     }
-
-
-
 
     public void makeDeck(CardType types[] ){
+
         for(int i=0;i< types.length;i++){
             initializeCards(types[i]);
-         //   cardSuffle();
-        }
-
+        };
     }
 
-
     public void initializeCards(CardType type){
+
         String value;
         Card card;
         for (int j = 1; j < 14; j++) {
             value = makeValue(j);
             card = new Card(value, type);
-            cards.add(card);
+            cards.toList().add(card);
 
         }
     }
-    private void cardSuffle(){
-        Collections.shuffle(cards);
 
-    }
-
-     String makeValue(Integer j){
+    public String makeValue(Integer j){
         String value;
         if(j==A_NUMBER.value)
             value="A";
@@ -58,19 +49,5 @@ public class Cards  {
         return value;
     }
 
-    List<Card> toList(){
-        List<Card> cardList = new ArrayList<>();
-        for(int i=0;i<cards.size();i++){
-            cardList.add(cards.get(i));
-        }
-        return cardList;
-    }
-
-
-    /*
-    public class Cards{
-        private List<Card> cards;
-        Cards(List <Card> cards){
-        }
-    }*/
+*/
 }

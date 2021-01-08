@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class DealerTest {
-
+/*
     @Test
     @DisplayName("카드 합에 따라 뽑을 지 안뽑을지 테스트")
     public void pickTest(){
@@ -81,4 +81,5 @@ public class DealerTest {
         System.out.println(dealer.openCard().size());
         assertEquals(thrown.getMessage(),"더이상 추가할 수 없습니다");
     }
+    */
 }

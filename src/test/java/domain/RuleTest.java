@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RuleTest {
+    /*
     @Test
     @DisplayName("우승자를 가리는 테스트")
     public void winnerTest(){
@@ -31,4 +32,6 @@ public class RuleTest {
 
         else  assertEquals( rule.whoIsWinner(dealer,gamer),"Draw");
     }
+
+     */
 }
